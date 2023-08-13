@@ -1,0 +1,106 @@
+<app-web-iframe [style.opacity]="isMax && isOpen ? '.3' : '1'"></app-web-iframe>
+<!-- chatbot.component.html -->
+<form
+  [formGroup]="userForm"
+  (ngSubmit)="processUserResponse()"
+  *ngIf="!formSubmitted"
+>
+  <div id="baymax">
+    <button
+      id="baymax-popup-button"
+      (click)="openSupportPopup()"
+      [style.display]="isMax && isOpen ? 'none' : 'block'"
+    >
+      🤖 NEED HELP?
+    </button>
+  </div>
+  <div id="baymax-popup" [class.show]="isOpen" [ngClass]="{ 'baymax-popup': !isMax, 'baymax-popup-max': isMax }" [style.display]="isOpen ? 'block' : 'none'">
+      <div id="baymax-popup-header">
+        <span id="bot_name">iCover Assistant</span>
+        <div class="button-close-max">
+          <button id="maximize-button" (click)="toggleMaximize()"><fa-icon [icon]="maximizeButton"></fa-icon></button>
+          <button id="baymax-popup-close-button" (click)="openSupportPopup()">
+            <fa-icon [icon]="closeButton"></fa-icon>
+          </button>
+        </div>
+      </div> 
+      <div id="baymax-popup-body">
+        <div id="chat_time">Chat started at {{currTime}}</div>
+        <div class="messages" #scrollMe>
+          <div *ngFor="let message of messages" class="message">
+            <div
+              [ngClass]="{
+                'user-message': message.isUser,
+                'bot-message': !message.isUser
+              }"
+            >
+              <div>
+                <div>{{ message.text }}</div>
+                <div class="options" *ngIf="isOption">
+                  <div
+                    id="mcq"
+                    *ngFor="let option of message.options"
+                    (click)="processOptions(option)"
+                  >
+                    {{ option }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="animation_container" *ngIf="isLoading">
+            <div class="type_anim"></div>
+            <div class="type_anim"></div>
+            <div class="type_anim"></div>
+          </div>
+          <div *ngIf="isDate" >
+            <mat-form-field>
+              <mat-label>Date of Birth</mat-label>
+              <input
+                matInput
+                [matDatepicker]="dob"
+                formControlName="date"
+                [max]="maxDate"
+                (dateInput)="processDate()"
+              />
+              <mat-datepicker-toggle
+                matSuffix
+                [for]="dob"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #dob>
+                <mat-datepicker-actions>
+                  <button mat-button matDatepickerCancel>Cancel</button>
+                  <button mat-raised-button color="primary" matDatepickerApply>
+                    Apply
+                  </button>
+                </mat-datepicker-actions>
+              </mat-datepicker>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+      <div class = "footer">
+          <input
+            type="text"
+            id="input_field"
+            formControlName="userInput"
+            (keydown.enter)="handleEnterKey($event)"
+            [disabled]="finalquestion"
+            placeholder="Type your response..."
+          />        
+        <!-- <button id="clear_submit" (click)="clearChat()">Clear Chat</button> -->
+          <button id="submit_button" [disabled]="userForm.invalid"><fa-icon [icon]="sendButton"></fa-icon></button>
+    </div>
+      <div
+        *ngIf="
+          userForm.get('userInput')?.invalid &&
+          userForm.get('userInput')?.touched
+        "
+        class="error-message"
+      ></div>
+      <!-- <div id="submit_button_div"></div> -->
+    </div>
+</form>
+
+
+

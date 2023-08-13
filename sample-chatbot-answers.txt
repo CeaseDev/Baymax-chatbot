@@ -1,0 +1,24 @@
+Text
+firstName : Arbind
+lastName : Mishra
+ssn:123121233
+email : arbind@test.com
+mobileNo: 5555551234
+address:abc123-75192
+city: xyz
+state: ajg
+zipcode: 11101
+
+Multiple_choice:-
+gender:
+communicationMedium :
+
+Datepicker- Date:
+
+Note:-
+Same SSN user won't get registered twice as have added check for that in the backend
+
+
+
+
+

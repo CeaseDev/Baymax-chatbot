@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,500;0,600;0,700;1,100;1,300;1,400;1,500&display=swap');
+
+body{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+table {
+    width: 85%;
+    height: 60%;
+  }
+
+.qstn_table{
+    margin-top: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+.top_menu{
+    background-color: #e6f2ff;
+    height: 50px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    #menu{
+        text-align: center;
+        text-decoration: bold;
+        font-size: 30px;
+        
+        font-weight: bold;
+        margin-left: 30px;
+       
+    }
+
+
+    #dash{
+    font-size: 20px;
+    text-align: center;
+    background-color: #66b3ff;
+    border-radius: 5%;
+    width: 150px;
+    font-weight: bold;
+    margin-right: 50px;
+    margin-bottom: 35px;
+    height: 40px;
+    }
+
+    #dash3{
+        font-size: 20px;
+        text-align: center;
+        border-radius: 5%;
+        width: 100px;
+        font-weight: bold;
+        margin-right: 30px;
+        margin-bottom: 35px;
+        height: 35px;
+        }
+}
+
+#change{
+    background-color:  #00e600;
+    color: black;
+    
+}
+
+#delete{
+    margin-left: 8px;
+    color: black;
+    background-color: #ff471a;
+}
+
+#pos,#edit,#qstn,#type{
+    text-align: center;
+}
+
+.dltbtn{
+    margin-left: 2rem;
+}

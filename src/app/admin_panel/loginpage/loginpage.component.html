@@ -1,0 +1,44 @@
+<div id="container">
+  <div id="l_header">
+    <img src="../assets/logo.png" alt="logo" id="logo_icover" />
+  </div>
+
+  <div id="r_header">
+    <form [formGroup]="form" id="login_form">
+      <div>
+        <label for="email_field">EMAIL</label>
+        <br />
+        <input type="email" id="email_field" formControlName="email" />
+        <br />
+        <p *ngIf="loginForm.email.invalid && isSubmitted">
+          <span *ngIf="loginForm.email.errors?.required" style="color: white"
+            >Email is required</span
+          >
+          <span *ngIf="loginForm.email.errors?.email" style="color: white"
+            >Email is invalid</span
+          >
+        </p>
+      </div>
+      <br />
+      <div>
+        <label for="password_field">PASSWORD</label>
+        <br />
+        <input type="password" id="password_field" formControlName="password" />
+        <br />
+        <p
+          *ngIf="loginForm.password.invalid && isSubmitted"
+          style="color: white"
+        >
+          Password is required
+        </p>
+      </div>
+      <br />
+      <button type="submit" (click)="onSubmit()">Login &#10145;</button>
+
+      <div class="col-12" *ngIf="isSubmitted && authError" style="color: white">
+        <br />
+        <p>{{ authMessage }}</p>
+      </div>
+    </form>
+  </div>
+</div>

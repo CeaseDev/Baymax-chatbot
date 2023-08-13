@@ -1,0 +1,94 @@
+#container{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 1px solid black;
+    height: 100vh;
+    width: 100vw;
+    background:white;
+    display:flex;
+    justify-content: center;
+    padding-top: 150px;
+}
+
+#l_header{
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    width: 20vw;
+    height: 60vh;
+    background-color: white;
+    border-left: 1px solid black;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    box-shadow: 1px 1px 15px  #808080,1px 1px 15px  #808080,1px 1px 15px #808080;
+
+}
+
+#logo_icover{
+    height: 120px;
+    width: 300px;
+    margin-top: 160px;
+}
+
+
+#r_header{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    max-height: 60vh;
+    width: 25vw;
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    box-shadow: 1px 1px 15px  #808080,1px 1px 15px  #808080,1px 1px 15px #808080;
+    background-color: #0a4f70;
+
+}
+
+#login_form{
+    margin: 50px;
+    padding: 50px;
+    padding-top: 40px;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 1px 1px 8px  #1a1a1a,1px 1px 8px #1a1a1a,1px 1px 8px #1a1a1a;
+    
+}
+
+#email_field{
+    width: 200px;
+    padding-left: 5px;
+    border-radius: 5px;
+    border: none;
+    height: 30px;
+    background-color: #e6f2ff;
+}
+
+#password_field{
+    width: 200px;
+    padding-left: 5px;
+    border-radius: 5px;
+    border: none;
+    height: 30px;
+    background-color: #e6f2ff;
+}
+
+button{
+    background-color: #0a4f70;
+    border-radius: 5px;
+    font-weight: 600;
+    color: #e6f2ff;
+    border: 1px solid #0a4f70;
+    margin-left: 45px;
+    width: 100px;
+}
+label{
+    color: #e6f2ff;
+    font-weight: 800;
+}
+button:hover{
+    background: #e6f2ff;
+    color: #0a4f70;
+    transition: all 0.5s ease;
+    transform: scale(1.1);
+    cursor: pointer;
+}

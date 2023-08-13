@@ -1,0 +1,71 @@
+<div class="top_menu">
+  <div id="empty"></div>
+  <div id="menu">Questions</div>
+
+  <div id="user_create">
+    <button mat-raised-button id="dash1" color="primary" (click)="goToCreate()">
+      + Create
+    </button>
+    <button mat-raised-button id="dash" (click)="goToUser()">Users</button>
+    <button mat-raised-button id="dash3" color="warn" (click)="logoutAdmin()">
+      Logout
+    </button>
+  </div>
+</div>
+
+<mat-card>
+  <div class="qstn_table">
+    <table mat-table [dataSource]="questions" class="mat-elevation-z8">
+      <ng-container matColumnDef="Number">
+        <th mat-header-cell *matHeaderCellDef id="edit">Q No.</th>
+        <td mat-cell *matCellDef="let element" id="edit">
+          {{ element.questionNumber }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="Questions">
+        <th mat-header-cell *matHeaderCellDef id="edit">Question</th>
+        <td mat-cell *matCellDef="let element" id="edit">
+          {{ element.question }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Type">
+        <th mat-header-cell *matHeaderCellDef id="edit">Type</th>
+        <td mat-cell *matCellDef="let element" id="edit">
+          {{ element.type }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Option">
+        <th mat-header-cell *matHeaderCellDef id="edit">Options</th>
+        <td mat-cell *matCellDef="let element" id="edit">
+          {{ element.options }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Modification">
+        <th mat-header-cell *matHeaderCellDef id="edit"></th>
+        <td mat-cell *matCellDef="let element" id="edit">
+          <button
+            mat-raised-button
+            color="accent"
+            class="editbtn"
+            (click)="updateQuestion(element.id)"
+          >
+            Edit
+          </button>
+          <button
+            mat-raised-button
+            color="warn"
+            (click)="deleteQuestion(element.id)"
+          >
+            Delete
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</mat-card>

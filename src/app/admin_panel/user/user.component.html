@@ -1,0 +1,107 @@
+<div class="top_menu">
+  <div></div>
+  <span id="menu">Users</span>
+  <div>
+    <button mat-raised-button id="dash" (click)="goToQuestion()">
+      Questions
+    </button>
+    <button mat-raised-button id="dash3" color="warn" (click)="logoutAdmin()">
+      Logout
+    </button>
+  </div>
+</div>
+
+<mat-card>
+  <div class="qstn_table">
+    <table mat-table [dataSource]="users" class="mat-elevation-z8">
+      <ng-container matColumnDef="FirstName">
+        <th mat-header-cell *matHeaderCellDef id="edit">First Name</th>
+        <td mat-cell *matCellDef="let element" id="edit">
+          {{ element.firstName }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="LastName">
+        <th mat-header-cell *matHeaderCellDef id="edit">Last Name</th>
+        <td mat-cell *matCellDef="let element" id="edit">
+          {{ element.lastName }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="Email">
+        <th mat-header-cell *matHeaderCellDef id="edit">Email</th>
+        <td mat-cell *matCellDef="let element" id="edit">
+          {{ element.email }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="Mobile">
+        <th mat-header-cell *matHeaderCellDef id="edit">Mobile</th>
+        <td mat-cell *matCellDef="let element" id="edit">
+          {{ element.mobile }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="CommMedium">
+        <th mat-header-cell *matHeaderCellDef id="edit">Comm. Medium</th>
+        <td mat-cell *matCellDef="let element" id="edit">
+          {{ element.communicationMedium }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="Address">
+        <th mat-header-cell *matHeaderCellDef id="edit">Address</th>
+        <td mat-cell *matCellDef="let element" id="edit">
+          {{ element.address }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="City">
+        <th mat-header-cell *matHeaderCellDef id="edit">City</th>
+        <td mat-cell *matCellDef="let element" id="edit">
+          {{ element.city }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="State">
+        <th mat-header-cell *matHeaderCellDef id="edit">State</th>
+        <td mat-cell *matCellDef="let element" id="edit">
+          {{ element.state }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="Zipcode">
+        <th mat-header-cell *matHeaderCellDef id="edit">ZipCode</th>
+        <td mat-cell *matCellDef="let element" id="edit">
+          {{ element.zipcode }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="DOB">
+        <th mat-header-cell *matHeaderCellDef id="edit">DOB</th>
+        <td mat-cell *matCellDef="let element" id="edit">
+          {{ element.dob | date : "mediumDate" }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="Gender">
+        <th mat-header-cell *matHeaderCellDef id="edit">Gender</th>
+        <td mat-cell *matCellDef="let element" id="edit">
+          {{ element.gender }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="SSN">
+        <th mat-header-cell *matHeaderCellDef id="edit">SSN</th>
+        <td mat-cell *matCellDef="let element" id="edit">
+          {{ element.socialSecurityNumber }}
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="Modification">
+        <th mat-header-cell *matHeaderCellDef id="edit"></th>
+        <td mat-cell *matCellDef="let element" id="edit">
+          <button
+            mat-raised-button
+            color="warn"
+            class="dltbtn"
+            (click)="removeUser(element.id)"
+          >
+            Remove
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+</mat-card>

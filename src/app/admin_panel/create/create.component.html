@@ -1,0 +1,63 @@
+<div class="top_menu">
+  <div id="empty"></div>
+  <span id="create" *ngIf="!editMode">Add Question</span>
+  <span id="create" *ngIf="editMode">Edit Question</span>
+  <button mat-raised-button id="dash" color="warn" (click)="goToQuestion()">
+    Cancel
+  </button>
+</div>
+
+<!-- <mat-card> -->
+<div id="container">
+  <div id="details">
+    <form [formGroup]="form">
+      <mat-form-field appearance="outline">
+        <mat-label for="questionNumber" class="boxstyle">Q No.</mat-label>
+        <input
+          formControlName="questionNumber"
+          type="text"
+          id="ques"
+          matInput
+        />
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="outline">
+        <mat-label for="question" class="boxstyle">Question</mat-label>
+        <input formControlName="question" type="text" id="ques" matInput />
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="outline">
+        <mat-label for="type" class="boxstyle">Type</mat-label>
+        <br />
+        <mat-select matNativeControl formControlName="type" name="type">
+          <mat-option *ngFor="let type of types" [value]="type.value">
+            {{ type.display }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="outline">
+        <mat-label for="tag" class="boxstyle">Tag</mat-label>
+        <br />
+        <mat-select matNativeControl formControlName="tag" name="tag">
+          <mat-option *ngFor="let tag of tags" [value]="tag.value">
+            {{ tag.display }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br />
+      <mat-form-field appearance="outline">
+        <mat-label for="options" class="boxstyle">Options</mat-label>
+        <input formControlName="options" type="text" id="ques" matInput />
+      </mat-form-field>
+      <br />
+      <div id="create_button">
+        <button mat-raised-button class="submitbtn" (click)="onSubmit()">
+          Submit
+        </button>
+      </div>
+      <br />
+    </form>
+  </div>
+</div>
+<!-- </mat-card> -->
